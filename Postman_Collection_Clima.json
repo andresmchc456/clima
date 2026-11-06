@@ -1,0 +1,526 @@
+{
+  "info": {
+    "name": "Taller API REST - Gestión Meteorológica (Clima)",
+    "_postman_id": "c1f7b889-105d-4df6-8807-6a1c1d812345",
+    "description": "Colección completa y exhaustiva para el Taller Complementario de Spring Boot y JPA",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Ciudades",
+      "item": [
+        {
+          "name": "Listar Ciudades",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/ciudades",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "ciudades"]
+            }
+          }
+        },
+        {
+          "name": "Crear Ciudad",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Bogotá D.C.\",\n  \"departamento\": \"Cundinamarca\",\n  \"poblacion\": 7900000\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/ciudades",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "ciudades"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Ciudad por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/ciudades/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "ciudades", "1"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Ciudad",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Manizales del Alma\",\n  \"departamento\": \"Caldas\",\n  \"poblacion\": 460000\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/ciudades/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "ciudades", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Ciudad",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/ciudades/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "ciudades", "2"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Estaciones",
+      "item": [
+        {
+          "name": "Listar Estaciones",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/estaciones",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "estaciones"]
+            }
+          }
+        },
+        {
+          "name": "Registrar Estación asociada a Ciudad",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Estación Palogrande\",\n  \"codigo\": \"EST-PALO-03\",\n  \"ubicacion\": \"Estadio Palogrande\",\n  \"estado\": \"ACTIVA\",\n  \"ciudadId\": 1,\n  \"configuracion\": {\n    \"frecuenciaTransmision\": 15,\n    \"rangoAlertaTemperatura\": 33.5\n  }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/estaciones",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "estaciones"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Estación por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/estaciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "estaciones", "1"]
+            }
+          }
+        },
+        {
+          "name": "Consultar Estaciones de una Ciudad",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/estaciones/ciudad/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "estaciones", "ciudad", "1"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Estación",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Estación Chipre Central\",\n  \"codigo\": \"EST-CHIPRE-01\",\n  \"ubicacion\": \"Mirador Turístico de Chipre\",\n  \"estado\": \"ACTIVA\",\n  \"ciudadId\": 1,\n  \"configuracion\": {\n    \"frecuenciaTransmision\": 20,\n    \"rangoAlertaTemperatura\": 31.0\n  }\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/estaciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "estaciones", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Estación",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/estaciones/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "estaciones", "2"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Mediciones (RegistroClima)",
+      "item": [
+        {
+          "name": "Listar Mediciones",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/mediciones",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "mediciones"]
+            }
+          }
+        },
+        {
+          "name": "Registrar Medición para una Estación",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"temperatura\": 34.2,\n  \"humedad\": 80,\n  \"presion\": 1011.50,\n  \"descripcion\": \"Medición de mediodía bajo calor intenso\",\n  \"estacionId\": 1,\n  \"tipoMedicionIds\": [1, 2, 3]\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/mediciones",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "mediciones"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Medición por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/mediciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "mediciones", "1"]
+            }
+          }
+        },
+        {
+          "name": "Consultar Mediciones de una Estación",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/mediciones/estacion/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "mediciones", "estacion", "1"]
+            }
+          }
+        },
+        {
+          "name": "[RETO 1] Mediciones con Temperatura > 30°C",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/mediciones/temperatura-mayor?min=30.0",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "mediciones", "temperatura-mayor"],
+              "query": [
+                { "key": "min", "value": "30.0" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "[RETO 2] Promedio de Temperatura por Ciudad",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/mediciones/promedio-ciudad/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "mediciones", "promedio-ciudad", "1"]
+            }
+          }
+        },
+        {
+          "name": "Actualizar Medición",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"temperatura\": 33.0,\n  \"humedad\": 70,\n  \"presion\": 1012.0,\n  \"descripcion\": \"Medición corregida por sensor\",\n  \"estacionId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/mediciones/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "mediciones", "1"]
+            }
+          }
+        },
+        {
+          "name": "Eliminar Medición",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/mediciones/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "mediciones", "2"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Usuarios y Roles",
+      "item": [
+        {
+          "name": "Listar Usuarios",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/usuarios",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "usuarios"]
+            }
+          }
+        },
+        {
+          "name": "Registrar Usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"María Gómez\",\n  \"correo\": \"maria.gomez@ucaldas.edu.co\",\n  \"contrasena\": \"segura456\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/usuarios",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "usuarios"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Usuario por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/usuarios/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "usuarios", "1"]
+            }
+          }
+        },
+        {
+          "name": "Crear Rol",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"ANALISTA\",\n  \"descripcion\": \"Analista de datos climáticos y estadísticas\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/roles",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "roles"]
+            }
+          }
+        },
+        {
+          "name": "Listar Roles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/roles",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "roles"]
+            }
+          }
+        },
+        {
+          "name": "Asignar Rol a Usuario",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/usuarios/1/roles/2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "usuarios", "1", "roles", "2"]
+            }
+          }
+        },
+        {
+          "name": "Consultar Usuarios por Rol",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/usuarios/rol/ADMIN",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "usuarios", "rol", "ADMIN"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Alertas",
+      "item": [
+        {
+          "name": "Listar Alertas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/alertas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "alertas"]
+            }
+          }
+        },
+        {
+          "name": "Crear Alerta",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"descripcion\": \"Alerta por alta probabilidad de granizo\",\n  \"nivel\": \"MEDIO\",\n  \"estado\": \"ACTIVA\",\n  \"registroClimaId\": 1\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8081/api/alertas",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "alertas"]
+            }
+          }
+        },
+        {
+          "name": "Buscar Alerta por ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/alertas/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "alertas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Consultar Alertas por Nivel",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/alertas/nivel/ALTO",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "alertas", "nivel", "ALTO"]
+            }
+          }
+        },
+        {
+          "name": "[RETO 3] Alertas Activas de una Ciudad",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8081/api/alertas/activas/ciudad/1",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8081",
+              "path": ["api", "alertas", "activas", "ciudad", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
